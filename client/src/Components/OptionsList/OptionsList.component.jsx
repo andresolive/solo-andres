@@ -1,27 +1,24 @@
 import { useState, useEffect } from 'react'
-import { getCompanies} from '../../Services/ApiService';
-import ListOption from '../ListOption/ListOption.component';
-import './OptionsList.css';
+import { getCompanies } from '../../Services/ApiService'
+import ListOption from '../ListOption/ListOption.component'
+import './OptionsList.css'
 
 export default function OptionsList({ selectOption }) {
-
   // companies list state --> move it to the company list component
-  const [companiesList, setCompaniesList] = useState([]);
+  const [companiesList, setCompaniesList] = useState([])
 
   async function getAllCompanies() {
-    const allCompanies = await getCompanies();
+    const allCompanies = await getCompanies()
     // console.log(allCompanies);
-    setCompaniesList(allCompanies);
+    setCompaniesList(allCompanies)
   }
 
   useEffect(() => {
-    getAllCompanies();
+    getAllCompanies()
   }, [])
-  
 
   return (
     <div className="OptionsList">
-
       <div id="both-buttons">
         <button id="underlying-type">📈Securities</button>
         <button id="underlying-type">🚀Futures</button>
@@ -39,9 +36,13 @@ export default function OptionsList({ selectOption }) {
         <h4 id="next-exp">Next Expiration</h4>
       </div>
 
-      {companiesList.map(company => (<ListOption key={company._id} company={company} selectOption={selectOption}
-    />
-  ))}
+      {companiesList.map((company) => (
+        <ListOption
+          key={company._id}
+          company={company}
+          selectOption={selectOption}
+        />
+      ))}
     </div>
   )
 }

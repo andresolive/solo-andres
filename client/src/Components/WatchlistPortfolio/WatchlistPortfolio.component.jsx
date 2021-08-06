@@ -1,13 +1,17 @@
-import { useState, useEffect } from 'react';
-import WatchlistOption from '../WatchlistOption/WatchlistOption.component';
-import PortfolioOption from '../PortfolioOption/PortfolioOption.component';
-import './WatchlistPortfolio.css';
+import { useState, useEffect } from 'react'
+import WatchlistOption from '../WatchlistOption/WatchlistOption.component'
+import PortfolioOption from '../PortfolioOption/PortfolioOption.component'
+import './WatchlistPortfolio.css'
 
-
-
-export default function WatchlistPortfolio({ selectedView, userState, setUserState, optionToPortfolio, deleteFromWatchlist, deleteFromPortfolio }) {
-
-  const [titleState, setTitleState] = useState('Watchlist');
+export default function WatchlistPortfolio({
+  selectedView,
+  userState,
+  setUserState,
+  optionToPortfolio,
+  deleteFromWatchlist,
+  deleteFromPortfolio,
+}) {
+  const [titleState, setTitleState] = useState('Watchlist')
   // console.log('selectedView', selectedView)
 
   const watchlistItems = userState.watchlist.map((option, i) => {
@@ -27,7 +31,7 @@ export default function WatchlistPortfolio({ selectedView, userState, setUserSta
   const portfolioItems = userState.portfolio.map((option, i) => {
     return (
       <div id="portfolio">
-        <PortfolioOption 
+        <PortfolioOption
           key={option._id + i}
           id={option._id}
           option={option}
@@ -40,22 +44,16 @@ export default function WatchlistPortfolio({ selectedView, userState, setUserSta
   useEffect(() => {
     if (selectedView) {
       setTitleState('Portfolio')
-    }
-    else {
+    } else {
       setTitleState('Watchlist')
     }
   }, [selectedView])
-  
 
   return (
-    
     <div className="WatchlistPortfolio">
-
       <h2 id="pf-wl-title">{titleState}</h2>
 
-      
-      {titleState === 'Portfolio' ? 
-
+      {titleState === 'Portfolio' ? (
         <div id="wl-or-pf">
           <div id="portfolio-headers">
             <div className="portfolio-headers description">Ticker</div>
@@ -70,13 +68,10 @@ export default function WatchlistPortfolio({ selectedView, userState, setUserSta
             <div className="portfolio-headers sell">Sell</div>
           </div>
           {portfolioItems}
-          </div>
-      :
+        </div>
+      ) : (
         <div id="wl-or-pf">{watchlistItems}</div>
-      }
-
-
-
+      )}
     </div>
   )
 }
