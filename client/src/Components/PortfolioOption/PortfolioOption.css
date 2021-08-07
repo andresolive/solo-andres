@@ -7,7 +7,6 @@
 
 .portfolio-headers {
   font-weight: bold;
-  
 }
 
 #the-actual-portfolio {
@@ -22,7 +21,6 @@
 .portfolio-options.description {
   /* min-width: 1.5em;
   max-width: 1.5em; */
-
 }
 
 .portfolio-options.type {
@@ -69,13 +67,7 @@
   font-size: 0.8em; */
 }
 
-
 .portfolio-options.sell-button {
   /* width: 3em; */
   font-size: 0.8em;
 }
-
-
-
-
-

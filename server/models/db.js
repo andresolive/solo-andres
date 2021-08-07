@@ -1,7 +1,19 @@
 const mongoose = require('mongoose')
-const dbName = 'dbSolo';
+const config = require('../config/config')
 
-mongoose.connect(`mongodb://localhost:27017/${dbName}`, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(
+  `mongodb://${config.DB_URL}/${config.DB_NAME}`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  (err) => {
+    if (err) {
+      console.log('🔴 error connecting', err)
+    } else {
+      console.log('✅ connected to the db')
+    }
+  },
+)
 
-module.exports = mongoose;
-
+module.exports = mongoose

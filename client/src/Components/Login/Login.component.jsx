@@ -1,21 +1,21 @@
-import './Login.css';
+import React, { useState } from 'react'
+import './Login.css'
 
-export default function Login({ emailState, setEmailState, passwordState, setPasswordState, login }) {
+export default function Login({ login }) {
+  const [emailState, setEmailState] = useState('')
+  const [passwordState, setPasswordState] = useState('')
 
-  
   const submitHandler = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     login(emailState, passwordState)
   }
 
   return (
     <div className="Login">
-      
       <form id="login-form" onSubmit={submitHandler}>
-
         <div id="email">
           {/* <h4 id="email-legend">Email</h4> */}
-          <input 
+          <input
             className="email-input"
             type="text"
             placeholder="Email"
@@ -39,18 +39,12 @@ export default function Login({ emailState, setEmailState, passwordState, setPas
           />
         </div>
 
-        <div >
-          <button 
-            type="submit"
-            id="submit-button"
-          >
+        <div>
+          <button type="submit" id="submit-button">
             Go!
           </button>
         </div>
-         
       </form>
-
-
     </div>
   )
 }

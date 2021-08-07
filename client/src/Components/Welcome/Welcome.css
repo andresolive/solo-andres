@@ -8,7 +8,7 @@
   /* border-bottom: solid rgb(11, 224, 160); */
   margin: 0em 0em 0em 1em;
   height: 47em;
-  color:rgb(87, 12, 207);
+  color: rgb(87, 12, 207);
 }
 
 #welcome-message {
@@ -17,19 +17,16 @@
   padding: 0em 0em 0em 0em;
 }
 
-
 h2 {
   font-weight: bold;
   font-size: 50px;
   margin: 0em 0em 0.5em 0em;
 }
 
-
 p {
   font-size: 35px;
   margin: 0em 1.5em 1em 1.5em;
   /* border: solid black; */
-  
 }
 
 #unstatic-info {
@@ -91,5 +88,3 @@ button:hover {
   float: right;
   margin: 0.5em 2em 0em 1em;
 }
-
-
